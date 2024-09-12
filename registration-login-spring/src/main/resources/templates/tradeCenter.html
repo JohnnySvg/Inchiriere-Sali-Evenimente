@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Inchirieri Sali Evenimente</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="Styling.css">
+<style type="text/css">
+
+body {
+background: #000;
+background: linear-gradient(to right,#161616,#000);
+}
+
+#sign-up {
+background: #000;
+background: linear-gradient(to right,#161616,#000);
+}
+
+#navbar__logo{
+	font-size: 3rem;
+   	background-size: 100%;
+
+}
+
+#alnk {
+	display: flex;
+    justify-content: center;
+	float: center;
+	padding:50px 0;
+	}
+	
+.main__content {
+padding:50px 50px;
+}
+
+.line {
+border: 0.3px solid #fe3b6f;
+}
+
+#about_sala {
+display: flex;
+    justify-content: center;
+    float: center;
+height:320px;
+}
+
+.whttxt {
+	color: #fff;
+}
+
+#btn_sub {
+color: #fff;
+}
+
+#det {
+font-size: 4rem;
+    background: #ff8177;
+    background: -webkit-gradient(to right, #9114ff, #da22ff);
+    background: linear-gradient(to right, #9114ff, #da22ff);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-backgorund-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+</style>
+
+</head>
+<body>
+
+	 <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#home" id="navbar__logo">Sali Evenimente</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a th:href="@{/}" class="navbar__links" id="home-page">
+                        Acasa
+                    </a>
+                </li>
+                
+                <li class="navbar__btn" sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}" class="button" id="signup">
+                        Log Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+     <div class="main" id="sign-up">
+            <div class="main__container">
+            
+            
+                    <div class="main__content">
+                        <h1>
+                            Închiriază acum!
+                        </h1>
+                        <h2>
+                            WORLD TRADE CENTER
+                        </h2>
+                        
+                        <hr class="line">
+                        <br>
+                        <p>
+                            World Trade Center Bucuresti - in cei peste 15 ani de activitate de succes, 
+                            World Trade Center si-a castigat reputatia de a fi o locatie de talie mondială pentru
+                             întâlniri de afaceri, expoziții și conferințe, târguri, expoziții și simpozioane.
+                        </p>
+                        <br>
+                        <hr class="line">
+                        <br>
+                        
+                        <h1>
+                            Adresă :
+                        </h1>
+                        <p>
+                        Bucuresti, Piata Montreal, nr. 10
+                        </p>
+                        
+                        <br>
+                        <div class="mapouter"><div class="gmap_canvas"><iframe width="700" height="400" 
+                        id="gmap_canvas" src="https://maps.google.com/maps?q=World Trade Center&t=&z=10&ie=UTF8&iwloc=&output=embed" 
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><style>.mapouter{position:relative;text-align:right;height:510px;width:770px;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:510px;width:770px;}</style></div></div>
+                        <br>
+                        <hr class="line">
+                         <h1>
+                            Telefon :
+                        </h1>
+                        <p>
+                        0212024450
+                        </p>
+                        
+                        <br>
+                        <hr class="line">
+                        <br>
+                        
+                    </div>
+                    <div class="main__img--container">
+                    <div class="main__img--card" id="card-2">
+                        <i class=""></i>
+                        <img id="about_sala" th:src="@{images/world-trade-center.png}">
+                    </div>
+                    </div>
+                    
+                    
+                </div>
+            
+            
+            <div class="container">
+	
+	
+		
+	
+		<h2 id="det">Detalii închiriere</h2>
+		
+		<form action="#" th:action="@{/saveRequestTradeCenter}" th:object="${request}" method="post">
+			
+			<br>
+			<label class="whttxt">Nume Utilizator :</label>
+			<input type="text" th:field="*{nume}" 
+			class="form-control mb-4 col-4" required></input>
+			
+			<br>
+			<label class="whttxt">Număr Persoane :</label>
+			<input type="number" th:field="*{nrPers}" 
+			class="form-control mb-4 col-4" required></input>
+			
+			<br>
+			<label class="whttxt">Data Check-In :</label>
+			<input type="date" th:field="*{checkin}" placeholder="Data Check-in"
+			class="form-control mb-4 col-4" required></input>
+			
+			<br>
+			<label class="whttxt">Data Check-Out :</label>
+			<input type="date" th:field="*{checkout}" placeholder="Data Check-out"
+			class="form-control mb-4 col-4" required></input>
+			<br>
+			<br>
+			
+			<button type="submit" id="btn_sub" class="btn btn-info col-2"> Închiriază!</button>
+			</form>
+		
+	</div></div>
+            
+            <div class="footer__container">
+                <div class="footer__links">
+                    <div class="footer__link--wrapper">
+                        <div class="footer__link--items">
+                            <h2>Despre Noi</h2>
+                            <a href="/">Cum Funcționăm</a>
+                            <a href="/">Testimoniale</a>
+                            <a href="/">Cariere</a>
+                            <a href="/">Termeni și condiții</a>
+                        </div>
+                        <div class="footer__link--items">
+                            <h2>Date contact</h2>
+                            <a href="/">Contact</a>
+                            <a href="/">Suport</a>
+                            <a href="/">Destinatinatari</a>
+                        </div>
+                        </div>
+                        <div class="footer__link--wrapper">
+                        <div class="footer__link--items">
+                            <h2>Videoclipuri</h2>
+                            <a href="/">Postări Video</a>
+                            <a href="/">Ambasadori</a>
+                            <a href="/">Agenție</a>
+                        </div>
+                        <div class="footer__link--items">
+                            <h2>Social Media</h2>
+                            <a href="/">Instagram</a>
+                            <a href="/">Facebook</a>
+                            <a href="/">Youtube</a>
+                            <a href="/">Twitter</a>
+                        </div>
+                        </div>
+                    </div>
+                    <section class="social__media">
+                        <div class="social__media--wrap">
+                            <div class="footer__logo">
+                                <a href="/" id="footer__logo">SALI EVENIMENTE</a>
+                            </div>
+                            <p class="website__rights">© SALI EVENIMENTE 2023. All rights reserved</p>
+                            <div class="social__icons">
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+</body>
+</html>

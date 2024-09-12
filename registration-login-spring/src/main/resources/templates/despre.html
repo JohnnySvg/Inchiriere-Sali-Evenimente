@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html   xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Inchirieri Sali Evenimente</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="Styling.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style type="text/css">
+
+body {
+background: #000;
+background: linear-gradient(to right,#161616,#000);
+}
+
+#sign-up {
+background: #000;
+background: linear-gradient(to right,#161616,#000);
+}
+
+#navbar__logo{
+	font-size: 3rem;
+   	background-size: 100%;
+
+}
+
+#alnk {
+	display: flex;
+    justify-content: center;
+	float: center;
+	padding:50px 0;
+	}
+	
+.main__content {
+padding:50px 50px;
+}
+
+.line {
+border: 0.3px solid #fe3b6f;
+}
+
+#about_sala {
+display: flex;
+    justify-content: center;
+    float: center;
+height:320px;
+}
+
+
+</style>
+</head>
+<body>
+
+		 <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#home" id="navbar__logo">Sali Evenimente</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a th:href="@{/}" class="navbar__links" id="home-page">
+                        Acasa
+                    </a>
+                </li>
+                
+                <li class="navbar__btn" sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}" class="button" id="signup">
+                        Log Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+    <div class="main" id="sign-up">
+            <div class="main__container">
+                    <div class="main__content">
+                        <h1>
+                            Punem Bucureștiul sub lupă!
+                        </h1>
+                        <h2>
+                            Misiunea Noastră...
+                        </h2>
+                        
+                        <hr class="line">
+                        <br>
+                        <p>
+                            Platforma noastră oferă clienților noștrii oportunitatea de a crea
+                            amintiri de neuitat alături de prieteni și familie
+                        </p>
+                        <br>
+                        <hr class="line">
+                        <br>
+                        <p>
+                            Sălile noastre sunt echipate cu infrastructură și facilități adecvate 
+                            pentru a susține diverse tipuri de evenimente; 
+                            sisteme audio și de iluminat, echipamente de proiecție și video, conexiune 
+                            la internet, ecrane, scena, toalete, parcare...
+                        </p>
+                        <br>
+                        <p>
+                        	Deasemenea oferim servicii și personal suport pentru a vă ajuta să 
+                        	gestionați evenimentul în mod eficient; servicii 
+                        	de catering și băuturi, personal de ospitalitate și organizare, asistență tehnică 
+                        	și logistică, coordonatori de evenimente ce vor asigura organizarea unor evenimente
+                        	de neuitat.
+                        </p>
+                        <br>
+                        <hr class="line">
+                        <br>
+                        <p>
+                        	Tindem să depășim de fiecare dată obiectivele propuse de clienții noștri, mereu 
+                        	prin fiecare eveniment organizat ne autodepășim și ne dezvoltăm în fiecare zi alături 
+                        	de oaspeții noștri dragi.
+                        </p>
+                        <br>
+                        <hr class="line">
+                        <br>
+                        <h1>
+                            Telefon :
+                        </h1>
+                        <p>
+                        0739853452
+                        </p>
+                        
+                    </div>
+                    <div class="main__img--container">
+                    <div class="main__img--card" id="card-2">
+                        <i class=""></i>
+                        <img id="about_sala" th:src="@{images/hk.jpg}">
+                    </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="footer__container">
+                <div class="footer__links">
+                    <div class="footer__link--wrapper">
+                        <div class="footer__link--items">
+                            <h2>Despre Noi</h2>
+                            <a href="/">Cum Funcționăm</a>
+                            <a href="/">Testimoniale</a>
+                            <a href="/">Cariere</a>
+                            <a href="/">Termeni și condiții</a>
+                        </div>
+                        <div class="footer__link--items">
+                            <h2>Date contact</h2>
+                            <a href="/">Contact</a>
+                            <a href="/">Suport</a>
+                            <a href="/">Destinatinatari</a>
+                        </div>
+                        </div>
+                        <div class="footer__link--wrapper">
+                        <div class="footer__link--items">
+                            <h2>Videoclipuri</h2>
+                            <a href="/">Postări Video</a>
+                            <a href="/">Ambasadori</a>
+                            <a href="/">Agenție</a>
+                        </div>
+                        <div class="footer__link--items">
+                            <h2>Social Media</h2>
+                            <a href="/">Instagram</a>
+                            <a href="/">Facebook</a>
+                            <a href="/">Youtube</a>
+                            <a href="/">Twitter</a>
+                        </div>
+                        </div>
+                    </div>
+                    <section class="social__media">
+                        <div class="social__media--wrap">
+                            <div class="footer__logo">
+                                <a href="/" id="footer__logo">SALI EVENIMENTE</a>
+                            </div>
+                            <p class="website__rights">© SALI EVENIMENTE 2023. All rights reserved</p>
+                            <div class="social__icons">
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+</body>
+</html>

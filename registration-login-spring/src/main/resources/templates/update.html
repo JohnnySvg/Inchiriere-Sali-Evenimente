@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Inchirieri Sali Evenimente</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	
+	<div class="container">
+               <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+	<h2 id="det">Modificare Închiriere</h2>
+		
+		<form action="#" th:action="@{/saveRequest2}" th:object="${request}" method="post">
+			
+			<br>
+			<input type="hidden" th:field="*{id}"/>
+			
+			<label class="whttxt">Nume Utilizator :</label>
+			<input type="text" th:field="*{nume}" 
+			class="form-control mb-4 col-4" required></input>
+			
+			<br>
+			<label class="whttxt">Număr Persoane :</label>
+			<input type="number" th:field="*{nrPers}" 
+			class="form-control mb-4 col-4" required></input>
+			
+			<br>
+			<label class="whttxt">Nume Sală:</label>
+			<input type="text" th:field="*{sala}" 
+			class="form-control mb-4 col-4" required></input>
+			
+			<br>
+			<label class="whttxt">Data Check-In :</label>
+			<input type="date" th:field="*{checkin}" placeholder="Data Check-in"
+			class="form-control mb-4 col-4" required></input>
+			
+			<br>
+			<label class="whttxt">Data Check-Out :</label>
+			<input type="date" th:field="*{checkout}" placeholder="Data Check-out"
+			class="form-control mb-4 col-4" required></input>
+			<br>
+			<br>
+			
+			<button type="submit" id="btn_sub" class="btn btn-info col-2"> Salvează</button>
+			</form>
+		
+	</div> </div> </div> 
+	
+</body>
+</html>

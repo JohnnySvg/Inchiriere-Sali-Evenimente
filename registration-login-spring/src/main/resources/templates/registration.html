@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+ <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inchirieri Sali Evenimente</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="Styling.css">
+
+<style>
+
+body {
+background: #000;
+background: linear-gradient(to right,#161616,#000);
+}
+
+#regtxt {
+	background: #ff8177;
+    background: -webkit-gradient(to right, #9114ff, #da22ff);
+    background: linear-gradient(to right, #9114ff, #da22ff);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-backgorund-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    }
+
+.form-group{
+	color: #fff;
+	
+}
+
+#register {
+display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #833ab4;
+    background: -webkit-linear-gradient(to right, #fcb045,#fd1d1d,#833ab4);
+    background: linear-gradient(to right, #fcb045,#fd1d1d,#833ab4);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn {
+	display: flex;
+	color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar__logo{
+	font-size: 3rem;
+   	background-size: 100%;
+
+}
+
+</style>
+
+</head>
+<body>
+            <!-- header -->
+            
+             <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#home" id="navbar__logo">Sali Evenimente</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                
+            </div>
+            
+        </div>
+    </nav>
+            
+            <!-- form -->
+            
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                  <!-- register success -->
+                  <div th:if="${param.success}">
+                    <div class="alert alert-info">
+                    Cont salvat!
+                    </div>
+                  </div>
+                  
+                  <h1 id="regtxt">Creare Cont nou</h1>
+                  <br>
+                  
+                  <form th:action="@{/registration}" method="post" th:object = "${user}">
+                  <div class="form-group">
+                  	<label class="control-label" for="firstName">
+                  		 Prenume
+                  	</label>
+                  	<input id="firstName" class="form-control" th:field="*{firstName}" required autofocus="autofocus" />
+                  </div>
+                  <br>
+                  
+                  <div class="form-group">
+                  	<label class="control-label" for="lastName">
+                  		Nume
+                  	</label>
+                  	<input id="lastName" class="form-control" th:field="*{lastName}" required autofocus="autofocus" />
+                  </div>
+                  <br>
+                  
+                  <div class="form-group">
+                  	<label class="control-label" for="email">
+                  		Email
+                  	</label>
+                  	<input id="email" class="form-control" th:field="*{email}" required autofocus="autofocus" />
+                  </div>
+                  <br>
+                  
+                  <div class="form-group">
+                  	<label class="control-label" for="password">
+                  		Parolă
+                  	</label>
+                  	<input id="password" class="form-control" type="password" th:field="*{password}" required autofocus="autofocus" />
+                  </div>
+                  <br>
+                  <br>
+                  
+                  <div class="form-group btn" >
+                  	<button id="register" type="submit" class="btn btn-success"> Salvează</button>
+                  	<br>
+                  	<br>
+                  	</div>
+                  
+                  </form>
+                  
+                  <div class=" btn" >
+                  	<span>Ai deja cont? <a href="/" th:href="@{/login}">Login aici</a></span>
+                  </div>
+                  
+                  </div>
+               </div>
+            </div>
+
+</body>
+</html>

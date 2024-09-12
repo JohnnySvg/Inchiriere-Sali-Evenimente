@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+
+ <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inchirieri Sali Evenimente</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="Styling.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style type="text/css">
+
+body {
+background: #000;
+background: linear-gradient(to right,#161616,#000);
+}
+
+#navbar__logo{
+	font-size: 3rem;
+   	background-size: 100%;
+
+}
+
+#alnk {
+	display: flex;
+    justify-content: center;
+	float: center;
+	padding:50px 0;
+	}
+	
+.img_sala {
+width: 300px;
+height:200px;
+}
+
+.whttxt {
+	color: #fff
+}
+
+</style>
+</head>
+<body>
+
+ <!-- header -->
+            
+            <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#home" id="navbar__logo">Sali Evenimente</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#home" class="navbar__links" id="home-page">
+                        Acasa
+                    </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#about" class="navbar__links" id="about-page">
+                        Despre noi
+                    </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#services" class="navbar__links" id="services-page">
+                        Servicii oferite
+                    </a>
+                </li>
+                <li class="navbar__btn" sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}" class="button" id="signup">
+                        Log Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>     
+      <!-- <div class="navbar-brand">Welcome <span sec:authentication="principal.username"> User</span></div> 
+      	<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+      -->
+	 <div class="hero" id="home">
+        <div class="hero__container">
+        	
+        	<div th:if="${param.success}">
+                    <div class="alert alert-info">
+                    Închirierea a fost salvată!
+                    </div>
+                  </div>
+        
+            <h1 class="hero__heading">Săli evenimente <span>Bucuresti</span></h1>
+            <br>
+            <br>
+            <p class="hero__desc">Pentru amintiri de neuitat</p>
+            <button class="main__btn"><a href="#about">Află mai mult</a></button>
+        </div>
+    </div>
+
+    <!-- About Section -->
+
+    <div class="main" id="about">
+        <div class="main__container">
+            <div class="main__img--container">
+                <div class="main__img--card">
+                    <i class="fas fa-users"></i>
+                </div>
+                </div>
+                <div class="main__content">
+                    <h1>
+                        Cu ce ne ocupăm?
+                    </h1>
+                    <h2>
+                        Punem Bucureștiul sub lupa
+                    </h2>
+                    <p>
+                        Această platformă conține săli de evenimente din București pentru nunți, botezuri, 
+                        petreceri, majorate.
+                    </p>
+                    <button class="main__btn"><a th:href="@{/despre}">Mai mult despre noi</a></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services" id="services">
+
+            <h1>Spații de închiriat disponibile:</h1>
+
+            <div class="services__wrapper">
+
+                <div class="services__card">
+                    <img id="sala_palatului" th:src="@{images/sala-palatului.jpg}">
+                    <p>Sala Palatului</p>
+                    <div class="services__btn"><button><a class="whttxt" th:href="@{/showSalaPalatului}">Închiriază</a></button></div>
+
+                </div>
+
+                <div class="services__card">
+                    <img class="img_sala" id="reyna_events" th:src="@{images/reyna-events.jpg}">
+                    <p>Reina Events</p>
+                    <div class="services__btn"><button><a class="whttxt" th:href="@{/showReynaEvents}">Închiriază</a></button></div>
+                </div>
+                <div class="services__card">
+                    <img class="img_sala" id="romexpo" th:src="@{images/romexpo.jpg}">
+                    <p>Romexpo</p>
+                    <div class="services__btn"><button><a class="whttxt" th:href="@{/showRomexpo}">Închiriază</a></button></div>
+                </div>
+                <div class="services__card">
+                    <img class="img_sala" id="trade-center" th:src="@{images/world-trade-center.png}">
+                    <p>World Trade Center</p>
+                    <div class="services__btn"><button><a class="whttxt" th:href="@{/showTradeCenter}">Închiriază</a></button></div>
+                </div>
+            </div>
+
+        </div>
+
+
+            <!-- Footer Section -->
+            <div class="footer__container">
+                <div class="footer__links">
+                    <div class="footer__link--wrapper">
+                        <div class="footer__link--items">
+                            <h2>Despre Noi</h2>
+                            <a href="/">Cum Funcționăm</a>
+                            <a href="/">Testimoniale</a>
+                            <a href="/">Cariere</a>
+                            <a href="/">Termeni și condiții</a>
+                        </div>
+                        <div class="footer__link--items">
+                            <h2>Date contact</h2>
+                            <a href="/">Contact</a>
+                            <a href="/">Suport</a>
+                            <a href="/">Destinatinatari</a>
+                        </div>
+                        </div>
+                        <div class="footer__link--wrapper">
+                        <div class="footer__link--items">
+                            <h2>Videoclipuri</h2>
+                            <a href="/">Postări Video</a>
+                            <a href="/">Ambasadori</a>
+                            <a href="/">Agenție</a>
+                        </div>
+                        <div class="footer__link--items">
+                            <h2>Social Media</h2>
+                            <a href="/">Instagram</a>
+                            <a href="/">Facebook</a>
+                            <a href="/">Youtube</a>
+                            <a href="/">Twitter</a>
+                        </div>
+                        </div>
+                    </div>
+                    <section class="social__media">
+                        <div class="social__media--wrap">
+                            <div class="footer__logo">
+                                <a href="/" id="footer__logo">SALI EVENIMENTE</a>
+                            </div>
+                            <p class="website__rights">© SALI EVENIMENTE 2023. All rights reserved</p>
+                            <div class="social__icons">
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="/" class="social__icon--link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+	
+	<a id="alnk" th:href="@{/admin}">Platformă Admin >></a>
+	
+
+
+<!-- <div class="navbar-brand">Welcome <span sec:authentication="principal.username"> User</span></div> -->
+
+<script th:src="@{app.js}"></script>
+</body>
+</html>
